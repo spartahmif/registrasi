@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Form Registrasi | SPARTA 2017</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="col-xl-8 col-md-6 col-12 col-hidden p5">
+      <div style="text-align: center;">
+        <img src="assets/img/logo.png" style="max-width: 400px"/>
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6 col-12">
+    <div id="sect1" class="card">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <h2> Hi! </h2>
+        <p> Form ini digunakan untuk ... </p>
+        <div class="input">
+          <label> NIM </label>
+          <input type="text" name="nim" id="nim" placeholder="" validate="^16517\d{3}$">
+          <small class="help" for="nim"> Gunakan NIM TPB. </small>
+        </div>
+        <button type="button" onclick="goToSection(2)">Next<i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    
+    <div id="sect2" class="card float-right hidden">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <div class="input">
+          <label> Nama Lengkap </label>
+          <input type="text" name="nama" id="nama" placeholder="" validate="">
+          <small class="help" for="nama"> Gunakan huruf kapital di awal tiap kata. </small>
+        </div>
+        <div class="input">
+          <label> Jurusan </label>
+          <label class="radio-item">
+            <input type="radio" name="jurusan" value="IF"> <span class="radio-label"> Informatika </span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="jurusan" value="STI"> <span class="radio-label"> Sistem Teknologi Informasi </span>
+          </label>
+        </div>
+        <div class="input">
+          <label> Email </label>
+          <input type="email" name="email" id="email" placeholder="" validate="">
+        </div>
+        <div class="input">
+          <label> Alamat Kos / Rumah </label>
+          <input type="text" name="alamat" id="alamat" placeholder="" validate="">
+        </div>
+        <div class="input">
+          <label> Nomor Telp. </label>
+          <input type="number" name="notelp" id="notelp" placeholder="" validate="">
+        </div>
+        <div class="input">
+          <label> ID Line </label>
+          <input type="text" name="idline" id="idline" placeholder="" validate="">
+        </div>
+        <button type="button" onclick="goToSection(1)">Prev<i class="fas fa-arrow-left"></i></button>
+        <button type="button" onclick="goToSection(3)">Next<i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    
+    <div id="sect3" class="card float-right hidden">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <div class="input">
+          <label> Nama Wali </label>
+          <input type="text" name="namawali" id="namawali" placeholder="" validate="">
+          <small class="help" for="namawali"> Gunakan huruf kapital di awal tiap kata. </small>
+        </div>
+        <div class="input">
+          <label> Hubungan dengan Wali </label>
+          <input type="text" name="hubwali" id="hubwali" placeholder="" validate="">
+          <small class="help" for="hubwali"> Ibu / Ayah / Saudara Kandung / lainnya. </small>
+        </div>
+        <div class="input">
+          <label> Nomor Telp. Wali </label>
+          <input type="number" name="nowali" id="nowali" placeholder="" validate="">
+        </div>
+        <button type="button" onclick="goToSection(2)">Prev<i class="fas fa-arrow-left"></i></button>
+        <button type="button" onclick="goToSection(4)">Next<i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    
+    <div id="sect4" class="card float-right hidden">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <div class="input">
+          <label> Golongan Darah </label>
+          <label class="radio-item">
+            <input type="radio" name="goldar" value="A"> <span class="radio-label"> A </span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="goldar" value="B"> <span class="radio-label"> B </span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="goldar" value="O"> <span class="radio-label"> O </span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="goldar" value="AB"> <span class="radio-label"> AB </span>
+          </label>
+          <small class="help" for="goldar"> Gunakan huruf kapital di awal tiap kata. </small>
+        </div>
+        <div class="input">
+          <label> Penyakit / Riwayat Penyakit </label>
+          <textarea name="penyakit" id="penyakit" placeholder="" validate=""> </textarea>
+          <small class="help" for="penyakit"> Kosongkan jika tidak ada. </small>
+        </div>
+        <button type="button" onclick="goToSection(3)">Prev<i class="fas fa-arrow-left"></i></button>
+        <button type="button" onclick="goToSection(5)">Next<i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    
+    <div id="sect5" class="card float-right hidden">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <div class="input">
+          <label> Daftar apa di OSKM 2018? </label>
+          <input type="text" name="dikdiv" id="dikdiv" placeholder="" validate="">
+          <small class="help" for="dikdiv"> Kosongkan jika tidak mendaftar. </small>
+        </div>
+        <button type="button" onclick="goToSection(4)">Prev<i class="fas fa-arrow-left"></i></button>
+        <button type="button" onclick="submit()">Submit<i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    
+    <div id="sect6" class="card float-right hidden">
+      <div class="container">
+        <h1> Form Registrasi SPARTA </h1>
+        <p> Data berhasil dikirim </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
