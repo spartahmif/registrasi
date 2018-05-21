@@ -67,7 +67,7 @@ prevSection = (id) => {
 submit = () => {
   let post_data = { }
   for (var field in fields) {
-    if (field == "goldar" || field == "jurusan") {
+    if ($("input[name=" + field + "]").attr("type") === "radio") {
       post_data[fields[field]] = $("input[name=" + field + "]:checked").val()
     } else {
       post_data[fields[field]] = $("input[name=" + field + "]").val()
