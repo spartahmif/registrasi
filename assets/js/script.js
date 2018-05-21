@@ -67,7 +67,11 @@ prevSection = (id) => {
 submit = () => {
   let post_data = { }
   for (var field in fields) {
-    post_data[fields[field]] = $("input[name=" + field + "]").val()
+    if (field == "goldar" || field == "jurusan") {
+      post_data[fields[field]] = $("input[name=" + field + "]:checked").val()
+    } else {
+      post_data[fields[field]] = $("input[name=" + field + "]").val()
+    }
   }
   $.post({
     url: url,
