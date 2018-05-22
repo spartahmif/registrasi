@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="col-xl-4 col-md-6 col-12">
+
     <div id="sect1" class="card">
       <div class="container">
         <h1> Form Registrasi SPARTA </h1>
@@ -26,45 +27,50 @@
         <p> Form ini digunakan untuk ... </p>
         <div class="input">
           <label> NIM </label>
-          <input type="text" name="nim" id="nim" placeholder="" validate="^16517\d{3}$">
+          <input sectid="1" type="text" name="nim" id="nim" placeholder="" validate="^16517\d{3}$">
           <small class="help" for="nim"> Gunakan NIM TPB. </small>
         </div>
         <button type="button" onclick="goToSection(2)">Next<i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
-    
+
     <div id="sect2" class="card float-right hidden">
       <div class="container">
         <h1> Form Registrasi SPARTA </h1>
         <div class="input">
           <label> Nama Lengkap </label>
-          <input type="text" name="nama" id="nama" placeholder="" validate="">
+          <input sectid="2" type="text" name="nama" id="nama" placeholder="" validate="^([A-Z][a-zA-Z\-\']*\s*)+$">
           <small class="help" for="nama"> Gunakan huruf kapital di awal tiap kata. </small>
         </div>
         <div class="input">
           <label> Jurusan </label>
           <label class="radio-item">
-            <input type="radio" name="jurusan" value="IF"> <span class="radio-label"> Informatika </span>
+            <input sectid="2" type="radio" name="jurusan" value="IF"> <span class="radio-label"> Informatika </span>
           </label>
           <label class="radio-item">
-            <input type="radio" name="jurusan" value="STI"> <span class="radio-label"> Sistem Teknologi Informasi </span>
+            <input sectid="2" type="radio" name="jurusan" value="STI"> <span class="radio-label"> Sistem Teknologi Informasi </span>
           </label>
+          <small class="help" for="jurusan"> Pilih salah satu. </small>
         </div>
         <div class="input">
           <label> Email </label>
-          <input type="email" name="email" id="email" placeholder="" validate="">
+          <input sectid="2" type="email" name="email" id="email" placeholder="" validate="\S+@\S+\.\S+">
+          <small class="help" for="email"> Format email: haha@hihi.hehe </small>
         </div>
         <div class="input">
           <label> Alamat Kos / Rumah </label>
-          <input type="text" name="alamat" id="alamat" placeholder="" validate="">
+          <input sectid="2" type="text" name="alamat" id="alamat" placeholder="" validate=".{5,}">
+          <small class="help" for="alamat"> Minimum 5 karakter </small>
         </div>
         <div class="input">
           <label> Nomor Telp. </label>
-          <input type="number" name="notelp" id="notelp" placeholder="" validate="">
+          <input sectid="2" type="text" name="notelp" id="notelp" placeholder="" validate="\d{5,20}">
+          <small class="help" for="notelp"> Contoh: 081286476928 </small>
         </div>
         <div class="input">
           <label> ID Line </label>
-          <input type="text" name="idline" id="idline" placeholder="" validate="">
+          <input sectid="2" type="text" name="idline" id="idline" placeholder="" validate="\S{3,20}">
+          <small class="help" for="idline"> Contoh: spartahmif </small>
         </div>
         <button type="button" onclick="goToSection(1)">Prev<i class="fas fa-arrow-left"></i></button>
         <button type="button" onclick="goToSection(3)">Next<i class="fas fa-arrow-right"></i></button>
@@ -76,17 +82,18 @@
         <h1> Form Registrasi SPARTA </h1>
         <div class="input">
           <label> Nama Wali </label>
-          <input type="text" name="namawali" id="namawali" placeholder="" validate="">
+          <input sectid="3" type="text" name="namawali" id="namawali" placeholder="" validate="^([A-Z][a-zA-Z\-\']*\s*)+$">
           <small class="help" for="namawali"> Gunakan huruf kapital di awal tiap kata. </small>
         </div>
         <div class="input">
           <label> Hubungan dengan Wali </label>
-          <input type="text" name="hubwali" id="hubwali" placeholder="" validate="">
+          <input sectid="3" type="text" name="hubwali" id="hubwali" placeholder="" validate="\S{3,}">
           <small class="help" for="hubwali"> Ibu / Ayah / Saudara Kandung / lainnya. </small>
         </div>
         <div class="input">
           <label> Nomor Telp. Wali </label>
-          <input type="number" name="nowali" id="nowali" placeholder="" validate="">
+          <input sectid="3" type="text" name="nowali" id="nowali" placeholder="" validate="\d{3,20}">
+          <small class="help" for="nowali"> Contoh: 081286476928 </small>
         </div>
         <button type="button" onclick="goToSection(2)">Prev<i class="fas fa-arrow-left"></i></button>
         <button type="button" onclick="goToSection(4)">Next<i class="fas fa-arrow-right"></i></button>
@@ -99,22 +106,22 @@
         <div class="input">
           <label> Golongan Darah </label>
           <label class="radio-item">
-            <input type="radio" name="goldar" value="A"> <span class="radio-label"> A </span>
+            <input sectid="4" type="radio" name="goldar" value="A"> <span class="radio-label"> A </span>
           </label>
           <label class="radio-item">
-            <input type="radio" name="goldar" value="B"> <span class="radio-label"> B </span>
+            <input sectid="4" type="radio" name="goldar" value="B"> <span class="radio-label"> B </span>
           </label>
           <label class="radio-item">
-            <input type="radio" name="goldar" value="O"> <span class="radio-label"> O </span>
+            <input sectid="4" type="radio" name="goldar" value="O"> <span class="radio-label"> O </span>
           </label>
           <label class="radio-item">
-            <input type="radio" name="goldar" value="AB"> <span class="radio-label"> AB </span>
+            <input sectid="4" type="radio" name="goldar" value="AB"> <span class="radio-label"> AB </span>
           </label>
-          <small class="help" for="goldar"> Gunakan huruf kapital di awal tiap kata. </small>
+          <small class="help" for="goldar"> Pilih salah satu. </small>
         </div>
         <div class="input">
           <label> Penyakit / Riwayat Penyakit </label>
-          <textarea name="penyakit" id="penyakit" placeholder="" validate=""> </textarea>
+          <textarea sectid="4" name="penyakit" id="penyakit" placeholder="" validate=""> </textarea>
           <small class="help" for="penyakit"> Kosongkan jika tidak ada. </small>
         </div>
         <button type="button" onclick="goToSection(3)">Prev<i class="fas fa-arrow-left"></i></button>
@@ -127,7 +134,7 @@
         <h1> Form Registrasi SPARTA </h1>
         <div class="input">
           <label> Daftar apa di OSKM 2018? </label>
-          <input type="text" name="dikdiv" id="dikdiv" placeholder="" validate="">
+          <input sectid="5" type="text" name="dikdiv" id="dikdiv" placeholder="" validate="">
           <small class="help" for="dikdiv"> Kosongkan jika tidak mendaftar. </small>
         </div>
         <button type="button" onclick="goToSection(4)">Prev<i class="fas fa-arrow-left"></i></button>
