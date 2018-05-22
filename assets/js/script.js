@@ -16,11 +16,11 @@ var fields = {
   penyakit: "entry.1479599575",
   dikdiv: "entry.371499753"
 }
+var errors = { }
 
 $.getJSON("data/stei17.json", (data) => { students = data })
 
 $(document).ready(() => {
-
   $("input[name=nim]").change(() => {
     removeError("name")
 
@@ -32,8 +32,40 @@ $(document).ready(() => {
   })
 })
 
-addError = (id) => { $("small.help[for=" + id + "]").addClass("error") }
-removeError = (id) => { $("small.help[for=" + id + "]").removeClass("error") }
+validateRadioBoxChecked = (id) => {
+  let selector = "input[name=" + id + "]:checked";
+  if (!$(selector).val()) {
+    let errorId = parseInt($(selector + ":first").attr("sectid"))
+    addError(id, errorId)
+  } else {
+    removeError(id)
+  }
+}
+
+validateInputTextField = (id) => {
+  let selector = "input[name=" + id + "]";
+  let text = $(selector).val();
+  let validate = $(selector).attr("validate");
+  if (validateText(text, validate)) {
+    removeError(id)
+  } else {
+    const errorId = parseInt($(selector).attr("sectid"))
+    addError(id, errorId)
+  }
+}
+
+validateText = (text, validate) => {
+  return new RegExp(validate).test(text);
+}
+
+addError = (id, sectId) => {
+  errors[id] = sectId
+  $("small.help[for=" + id + "]").addClass("error")
+}
+removeError = (id) => {
+  delete errors[id]
+  $("small.help[for=" + id + "]").removeClass("error")
+}
 
 goToSection = (id) => {
   if (id > currentSection) nextSection(id)
@@ -64,20 +96,46 @@ prevSection = (id) => {
   })
 }
 
+validateForm = () => {
+  validateInputTextField("nim");
+  validateInputTextField("nama");
+  validateInputTextField("email");
+  validateInputTextField("alamat");
+  validateInputTextField("notelp");
+  validateInputTextField("idline");
+  validateInputTextField("namawali");
+  validateInputTextField("hubwali");
+  validateInputTextField("nowali");
+
+  validateRadioBoxChecked("jurusan");
+  validateRadioBoxChecked("goldar");
+
+  return $.isEmptyObject(errors);
+}
+
 submit = () => {
-  let post_data = { }
-  for (var field in fields) {
-    if ($("input[name=" + field + "]").attr("type") === "radio") {
-      post_data[fields[field]] = $("input[name=" + field + "]:checked").val()
-    } else {
+  if (validateForm()) {
+    let post_data = { }
+    for (var field in fields) {
       post_data[fields[field]] = $("input[name=" + field + "]").val()
     }
-  }
-  $.post({
-    url: url,
-    data: post_data,
-    done: () => {
-      goToSection(6)
+    $.post({
+      url: url,
+      data: post_data,
+      done: () => {
+        goToSection(6)
+      }
+    })
+  } else {
+    let errorIds = Object.keys(errors);
+    let lowestErrorSection = errors[errorIds[0]];
+
+    for (const errorId in errorIds) {
+      if (errors[errorId] < lowestErrorSection) {
+        lowestErrorSection = errors[errorId];
+      }
     }
-  })
+
+    goToSection(lowestErrorSection);
+  }
 }
