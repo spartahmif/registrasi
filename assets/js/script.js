@@ -130,7 +130,7 @@ submit = () => {
     $.post({
       url: url,
       data: post_data,
-      success: function() => {
+      complete: function() => {
         goToSection(6)
       }
     })
