@@ -117,7 +117,7 @@ submit = () => {
   if (validateForm()) {
     let post_data = { }
     for (var field in fields) {
-      if ($("textarea#" + field)) {
+      if ($("textarea#" + field).length) {
         post_data[fields[field]] = $("textarea#"+field).val() 
       } else {
         if ($("input[name=" + field + "]").attr("type") == "radio") {
