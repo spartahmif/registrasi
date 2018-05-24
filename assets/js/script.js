@@ -119,12 +119,12 @@ submit = () => {
     for (var field in fields) {
       if ($("textarea#" + field).length) {
         post_data[fields[field]] = $("textarea#"+field).val() 
+      } else if ($("input[name=" + field + "]").attr("type") == "number") {
+        post_data[fields[field]] = "'" + $("input[name=" + field + "]").val()
+      } else if ($("input[name=" + field + "]").attr("type") == "radio") {
+        post_data[fields[field]] = $("input[name=" + field + "]:checked").val()
       } else {
-        if ($("input[name=" + field + "]").attr("type") == "radio") {
-          post_data[fields[field]] = $("input[name=" + field + "]:checked").val()
-        } else {
-          post_data[fields[field]] = $("input[name=" + field + "]").val()
-        }
+        post_data[fields[field]] = $("input[name=" + field + "]").val()
       }
     }
     $.post({
