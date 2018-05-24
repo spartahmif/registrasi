@@ -117,7 +117,7 @@ submit = () => {
   if (validateForm()) {
     let post_data = { }
     for (var field in fields) {
-      if (field == "penyakit") {
+      if ($("textarea#" + field)) {
         post_data[fields[field]] = $("textarea#"+field).val() 
       } else {
         if ($("input[name=" + field + "]").attr("type") == "radio") {
@@ -130,7 +130,7 @@ submit = () => {
     $.post({
       url: url,
       data: post_data,
-      done: () => {
+      success: function() => {
         goToSection(6)
       }
     })
