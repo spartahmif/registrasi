@@ -54,22 +54,22 @@
         </div>
         <div class="input">
           <label> Email </label>
-          <input sectid="2" type="email" name="email" id="email" placeholder="" validate="\S+@\S+\.\S+">
+          <input sectid="2" type="email" name="email" id="email" placeholder="" validate="^\S+@\S+\.\S+$">
           <small class="help" for="email"> Format email: haha@hihi.hehe </small>
         </div>
         <div class="input">
           <label> Alamat Kos / Rumah </label>
-          <input sectid="2" type="text" name="alamat" id="alamat" placeholder="" validate=".{5,}">
+          <input sectid="2" type="text" name="alamat" id="alamat" placeholder="" validate="^.{5,}$">
           <small class="help" for="alamat"> Minimum 5 karakter </small>
         </div>
         <div class="input">
           <label> Nomor Telp. </label>
-          <input sectid="2" type="text" name="notelp" id="notelp" placeholder="" validate="\d{5,20}">
+          <input sectid="2" type="text" name="notelp" id="notelp" placeholder="" validate="^\d{5,20}$">
           <small class="help" for="notelp"> Contoh: 081286476928 </small>
         </div>
         <div class="input">
           <label> ID Line </label>
-          <input sectid="2" type="text" name="idline" id="idline" placeholder="" validate="\S{3,20}">
+          <input sectid="2" type="text" name="idline" id="idline" placeholder="" validate="^\S{3,20}$">
           <small class="help" for="idline"> Contoh: spartahmif </small>
         </div>
         <button type="button" onclick="goToSection(1)">Prev<i class="fas fa-arrow-left"></i></button>
@@ -87,12 +87,12 @@
         </div>
         <div class="input">
           <label> Hubungan dengan Wali </label>
-          <input sectid="3" type="text" name="hubwali" id="hubwali" placeholder="" validate="\S{3,}">
+          <input sectid="3" type="text" name="hubwali" id="hubwali" placeholder="" validate="^\S{3,}$">
           <small class="help" for="hubwali"> Ibu / Ayah / Saudara Kandung / lainnya. </small>
         </div>
         <div class="input">
           <label> Nomor Telp. Wali </label>
-          <input sectid="3" type="text" name="nowali" id="nowali" placeholder="" validate="\d{3,20}">
+          <input sectid="3" type="text" name="nowali" id="nowali" placeholder="" validate="^\d{3,20}$">
           <small class="help" for="nowali"> Contoh: 081286476928 </small>
         </div>
         <button type="button" onclick="goToSection(2)">Prev<i class="fas fa-arrow-left"></i></button>
