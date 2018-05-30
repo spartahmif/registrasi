@@ -4,7 +4,7 @@
 
 body {
   background-attachment: fixed;
-  background-position: bottom center;
+  background-position: top center;
   background-image: url("../img/bg.jpg");
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
