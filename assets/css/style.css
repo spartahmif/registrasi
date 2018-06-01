@@ -20,6 +20,8 @@ body {
 *:focus { outline: none; }
 
 i { margin: 0 5px; }
+a { cursor: pointer; color: rgba(0, 0, 0, .8); }
+a:hover { text-decoration: underline; }
 
 .container {
   margin: 0 auto;
@@ -40,6 +42,8 @@ i { margin: 0 5px; }
 
 .hidden { display: none; }
 img { width: 100%; }
+#list { font-size: 12px; }
+.list-item { margin: .3em 0; }
 
 /*** COLUMN ***/
 

@@ -1,6 +1,7 @@
 var students = []
 var currentSection = 1
-var url = "https://docs.google.com/forms/d/e/1FAIpQLSdXA_9eg4wk2w6AY5-vemegllklhpD86eDiskFQe4IIUb2YYg/formResponse"
+var post_url = "https://docs.google.com/forms/d/e/1FAIpQLSdXA_9eg4wk2w6AY5-vemegllklhpD86eDiskFQe4IIUb2YYg/formResponse"
+var get_url = "https://script.googleusercontent.com/macros/echo?user_content_key=q8W19WQXXhG9lo3_ZbttUORyOfLKSsLUlecZL4lRNb-aWPPW7II6PH0j0SaPj3XAXQtU0y6ZLl6eENaG8IGa7ARf_AAwJcM8OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHazEeky60NwwGk66bQlWd0-p2fAbCvy4Rn-uapyGFGbVSkJViAmOkexqbAPk7pVNlJBanIwEBclWvC0EefjgA5A8ac8KEtK2hPmJDD_pdLovgbNVyXcE4JzHxXBEDMqRiF4fJZFdMRt_K&lib=MoDMSa-u8He-AWCSgL7s-BX9CcG857dnx"
 var fields = {
   nim: "entry.1891528819",
   nama: "entry.725355731",
@@ -30,6 +31,7 @@ $(document).ready(() => {
       }
     })
   })
+  getRegistered(showRegistered)
 })
 
 validateRadioBoxChecked = (id) => {
@@ -128,9 +130,9 @@ submit = () => {
       }
     }
     $.post({
-      url: url,
+      url: post_url,
       data: post_data,
-      complete: function() {
+      complete: () => {
         goToSection(6)
       }
     })
@@ -146,4 +148,37 @@ submit = () => {
 
     goToSection(lowestErrorSection);
   }
+}
+
+getRegistered = (cb) => {
+  let list = $("#list")
+  list.html("Loading ...")
+
+  $.get({
+    url: get_url,
+    success: (data) => {
+      cb(JSON.parse(data))
+    },
+    error: (err) => {
+      list.html("Error: " + err)
+    }
+  })
+}
+
+showRegistered = (rows) => {
+  let list = $("#list")
+  list.empty()
+  rows.forEach((item, index) => {
+    let litem = $("<div></div>", {class: "list-item"})
+    let date = new Date(item[0])
+    litem.html(
+      ""
+      + item[1]
+      + " ("
+      + date.toLocaleDateString("id-ID")
+      + " "
+      + date.toLocaleTimeString("id-ID")
+      + ")")
+    list.append(litem)
+  })
 }
